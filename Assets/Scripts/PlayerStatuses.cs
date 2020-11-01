@@ -11,13 +11,24 @@ public class PlayerStatuses : MonoBehaviour
     public Transform CameraParentPosition;
 
     private Animator _animator;
+    private PlayerLantern _lantern;
 
     private void Start()
     {
         _animator = GetComponent<Animator>();
+        _lantern = GetComponent<PlayerLantern>();
     }
 
     void Update()
+    {
+        // override player light detection sources if lantern is active
+        IsInLight = _lantern.LanternOn || IsInLight;
+
+        CameraFearAnimation();
+        PlayerNightVision();
+    }
+
+    private void CameraFearAnimation()
     {
         if (IsInLight)
         {
@@ -27,16 +38,10 @@ public class PlayerStatuses : MonoBehaviour
         {
             _animator.SetBool("IsAfraid", true);
         }
+    }
 
-        //if (!IsInLight && !DarknessFearAnimator.enabled)
-        //{
-        //    DarknessFearAnimator.enabled = true;
-        //}
-        //else if (IsInLight && DarknessFearAnimator.enabled)
-        //{
-        //    DarknessFearAnimator.enabled = false;
-        //}
-
+    private void PlayerNightVision()
+    {
         if (IsInLight && PlayerAmbientLight.intensity > 0)
         {
             print("Player is in light");

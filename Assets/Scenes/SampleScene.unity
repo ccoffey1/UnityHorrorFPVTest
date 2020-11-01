@@ -229,10 +229,10 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 256
-  moveSpeed: 12
-  gravity: -15
-  groundDistance: 0.4
-  jumpHeight: 3
+  MoveSpeed: 6
+  Gravity: -12
+  GroundDistance: 0.4
+  JumpHeight: 1.5
 --- !u!114 &599501263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,6 +268,7 @@ MonoBehaviour:
   LanternLightIntensity: 1.58
   LanternLightFadeInSpeed: 0.8
   LanternLightFadeOutSpeed: 3
+  LanternOn: 0
 --- !u!95 &599501265
 Animator:
   serializedVersion: 3
@@ -447,7 +448,7 @@ GameObject:
   - component: {fileID: 1270493786}
   - component: {fileID: 1270493785}
   - component: {fileID: 1270493784}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -818,7 +819,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 0.33
+    m_Strength: 0.513
     m_Bias: 0
     m_NormalBias: 0.4
     m_NearPlane: 0.2
