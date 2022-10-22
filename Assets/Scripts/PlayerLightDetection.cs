@@ -11,6 +11,12 @@ public class PlayerLightDetection : MonoBehaviour
     // prevents multiple detectors from overwriting one another
     private bool _lastDetectedByThisReference;
 
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, DetectionRadius);
+    }
+
     void Start()
     {
         _player = GameObject.FindGameObjectWithTag(Constants.PlayerTag);
@@ -25,7 +31,7 @@ public class PlayerLightDetection : MonoBehaviour
     private void PlayerInLightCheck()
     {
         var direction = (_player.transform.position - this.transform.position).normalized;
-        var ray = new Ray(this.transform.position, direction);
+        var ray = new Ray(this.transform.position, direction + new Vector3(0, 0.1f, 0)); // Apply a slight bias to Y-axis for player controller
         bool playerInRange = Physics.Raycast(ray, out RaycastHit hitInfo, DetectionRadius) && hitInfo.collider.CompareTag(Constants.PlayerTag);
 
         if (playerInRange)
@@ -41,6 +47,10 @@ public class PlayerLightDetection : MonoBehaviour
 
             _playerStatus.IsInLight = false;
             _lastDetectedByThisReference = false;
+        }
+        else
+        {
+            Debug.DrawRay(this.transform.position, ray.direction * DetectionRadius, Color.gray);
         }
     }
 }

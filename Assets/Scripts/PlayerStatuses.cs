@@ -44,12 +44,10 @@ public class PlayerStatuses : MonoBehaviour
     {
         if (IsInLight && PlayerAmbientLight.intensity > 0)
         {
-            print("Player is in light");
             PlayerAmbientLight.intensity = Mathf.Lerp(PlayerAmbientLight.intensity, 0, AmbientLightFadeOutSpeed * Time.deltaTime);
         }
         else if (!IsInLight && PlayerAmbientLight.intensity < AmbientLightIntensity)
         {
-            print("Player is in darkness");
             PlayerAmbientLight.intensity = Mathf.Lerp(PlayerAmbientLight.intensity, AmbientLightIntensity, AmbientLightFadeInSpeed * Time.deltaTime);
         }
     }
