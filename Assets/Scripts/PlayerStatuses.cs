@@ -2,20 +2,18 @@
 
 public class PlayerStatuses : MonoBehaviour
 {
-    public float LanternIntensity;
     public Light PlayerAmbientLight;
     public float AmbientLightIntensity;
     public float AmbientLightFadeInSpeed = 0.5f;
     public float AmbientLightFadeOutSpeed = 3f;
     public bool IsInLight;
-    public Transform CameraParentPosition;
 
     private Animator _animator;
     private PlayerLantern _lantern;
 
     private void Start()
     {
-        _animator = GetComponent<Animator>();
+        _animator = GetComponentInChildren<Camera>().GetComponent<Animator>();
         _lantern = GetComponent<PlayerLantern>();
     }
 
@@ -32,11 +30,11 @@ public class PlayerStatuses : MonoBehaviour
     {
         if (IsInLight)
         {
-            _animator.SetBool("IsAfraid", false);
+            _animator.SetBool("FearWobble", false);
         }
         else
         {
-            _animator.SetBool("IsAfraid", true);
+            _animator.SetBool("FearWobble", true);
         }
     }
  

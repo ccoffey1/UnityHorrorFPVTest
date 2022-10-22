@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 2078149767851732861}
   - component: {fileID: 2078149767851732862}
   - component: {fileID: 2078149767851732863}
+  - component: {fileID: 273854896}
   m_Layer: 1
   m_Name: Player Camera
   m_TagString: MainCamera
@@ -219,6 +220,26 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2078149767851732857}
   m_Enabled: 1
+--- !u!95 &273854896
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078149767851732857}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fb3958611038224488c2fdabdc9066d1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2078149767972712706
 GameObject:
   m_ObjectHideFlags: 0
@@ -670,7 +691,8 @@ GameObject:
   - component: {fileID: 2078149769095544642}
   - component: {fileID: 6825587126965439166}
   - component: {fileID: 7231280348139005636}
-  - component: {fileID: 8781296334096438082}
+  - component: {fileID: 928277584}
+  - component: {fileID: 928277585}
   m_Layer: 1
   m_Name: Player
   m_TagString: Player
@@ -1111,13 +1133,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce148a44bb70fe042b9fd5ac1cd0f2e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LanternIntensity: 0
   PlayerAmbientLight: {fileID: 1630464864796719266}
   AmbientLightIntensity: 0.3
   AmbientLightFadeInSpeed: 0.5
   AmbientLightFadeOutSpeed: 2
   IsInLight: 0
-  CameraParentPosition: {fileID: 2078149769599123285}
 --- !u!114 &7231280348139005636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1135,26 +1155,61 @@ MonoBehaviour:
   LanternLightFadeInSpeed: 0.8
   LanternLightFadeOutSpeed: 3
   LanternOn: 0
---- !u!95 &8781296334096438082
-Animator:
-  serializedVersion: 4
+--- !u!114 &928277584
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2078149769095544643}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 850d57493237dc64495eb0dd8c2862e3, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09372c8fcb09a3a47ab769c569b0241b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCam: {fileID: 2078149767851732857}
+  GrabButton: Grab
+  ThrowButton: Throw
+  UseButton: Use
+  ObjectGrab:
+    m_FreezeRotation: 0
+    m_PickupRange: 3
+    m_ThrowStrength: 1000
+    m_distance: 2
+    m_maxDistanceGrab: 4
+  ItemGrab:
+    m_FreezeRotation: 0
+    m_ItemPickupRange: 2
+    m_ItemThrow: 45
+    m_ItemDistance: 1
+    m_ItemMaxGrab: 2.5
+  DoorGrab:
+    m_DoorPickupRange: 2
+    m_DoorThrow: 10
+    m_DoorDistance: 2
+    m_DoorMaxGrab: 3
+  Tags:
+    m_InteractTag: Interact
+    m_InteractItemsTag: InteractItem
+    m_DoorsTag: Door
+--- !u!114 &928277585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078149769095544643}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e586b9f5ea88234a944f9c3ab48df8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_crosshairTexture: {fileID: 0}
+  m_useTexture: {fileID: 0}
+  RayLength: 3
+  m_DefaultReticle: 0
+  m_UseReticle: 0
+  m_ShowCursor: 0
 --- !u!1 &2078149769599123286
 GameObject:
   m_ObjectHideFlags: 0
