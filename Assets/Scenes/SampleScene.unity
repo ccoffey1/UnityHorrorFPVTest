@@ -685,25 +685,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2078149768192702776, guid: 5ef1a3da257d291409f6b560250426a6, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 2078149769095544641, guid: 5ef1a3da257d291409f6b560250426a6, type: 3}
-      propertyPath: movement.jumpHeight
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2078149769095544641, guid: 5ef1a3da257d291409f6b560250426a6, type: 3}
-      propertyPath: movement.allowAirJumpDirectionChange
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2078149769095544643, guid: 5ef1a3da257d291409f6b560250426a6, type: 3}
       propertyPath: m_Name
       value: Gold Player Controller
-      objectReference: {fileID: 0}
-    - target: {fileID: 2078149769095544643, guid: 5ef1a3da257d291409f6b560250426a6, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 2078149769095544647, guid: 5ef1a3da257d291409f6b560250426a6, type: 3}
       propertyPath: m_RootOrder

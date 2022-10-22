@@ -39,7 +39,7 @@ public class PlayerStatuses : MonoBehaviour
             _animator.SetBool("IsAfraid", true);
         }
     }
-
+ 
     private void PlayerNightVision()
     {
         if (IsInLight && PlayerAmbientLight.intensity > 0)
